@@ -140,6 +140,7 @@ document.getElementById('unit-fah').addEventListener('click', event => {
     document.getElementById('unit-cel').classList.remove('active');
     event.target.classList.add('active');
     if(city != ''){
+        console.log(city);
         url1 = `${weatherFCity}&q=${city}`;
         url2 = `${forecastFCity}&q=${city}`;
     }else{
@@ -176,7 +177,7 @@ function showPosition(position) {
 }
 
 document.getElementById('search-location').addEventListener('click', event => {
-    let city = document.getElementById('input-location').value;
+    city = document.getElementById('input-location').value;
     if (unit === 'C') {
         url1 = `${weatherCCity}&q=${city}`;
         url2 = `${forecastCCity}&q=${city}`;
