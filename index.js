@@ -1,7 +1,7 @@
-weatherCCity = 'http://api.openweathermap.org/data/2.5/weather?&appid=21e926bca5d007671affc56d1eb55605&units=metric';
-weatherFCity = 'http://api.openweathermap.org/data/2.5/weather?&appid=21e926bca5d007671affc56d1eb55605&units=imperial';
-forecastCCity = 'http://api.openweathermap.org/data/2.5/forecast?&appid=21e926bca5d007671affc56d1eb55605&units=metric';
-forecastFCity = 'http://api.openweathermap.org/data/2.5/forecast?&appid=21e926bca5d007671affc56d1eb55605&units=imperial';
+weatherCCity = 'https://api.openweathermap.org/data/2.5/weather?&appid=21e926bca5d007671affc56d1eb55605&units=metric';
+weatherFCity = 'https://api.openweathermap.org/data/2.5/weather?&appid=21e926bca5d007671affc56d1eb55605&units=imperial';
+forecastCCity = 'https://api.openweathermap.org/data/2.5/forecast?&appid=21e926bca5d007671affc56d1eb55605&units=metric';
+forecastFCity = 'https://api.openweathermap.org/data/2.5/forecast?&appid=21e926bca5d007671affc56d1eb55605&units=imperial';
 
 var url1 = '';
 var url2 = '';
@@ -82,7 +82,7 @@ function display(weatherData, forecastData){
     sunrise.innerText = UTCToIST(weatherData.sys.sunrise);
     sunset.innerText = UTCToIST(weatherData.sys.sunset);
     cityName.innerText = `${weatherData.name}, ${weatherData.sys.country}`;
-    weatherImage.src = `http://openweathermap.org/img/wn/${weatherData.weather[0].icon}@2x.png`
+    weatherImage.src = `https://openweathermap.org/img/wn/${weatherData.weather[0].icon}@2x.png`
     weatherDesc.innerText = capitalize(weatherData.weather[0].description);
     visibility.innerText = `Visibility  -  ${weatherData.visibility / 1000} km`;
     cloudiness.innerText = `Cloudiness  -  ${weatherData.clouds.all} %`;
@@ -108,7 +108,7 @@ function display(weatherData, forecastData){
         let desc = document.getElementById('desc'+counter);
         let humidity = document.getElementById('humidity'+counter);
         date.innerText = getDay(forecastData.list[i].dt);
-        img.src = `http://openweathermap.org/img/wn/${forecastData.list[i].weather[0].icon}@2x.png`
+        img.src = `https://openweathermap.org/img/wn/${forecastData.list[i].weather[0].icon}@2x.png`
         if(unit === 'C'){
             temp.innerHTML = `${forecastData.list[i].main.temp}<span><sup>o</sup>C</span>`
         } else{
