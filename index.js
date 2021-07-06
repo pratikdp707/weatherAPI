@@ -94,7 +94,7 @@ function display(weatherData, forecastData){
     pressure.innerText = `${weatherData.main.pressure} hPa`;
     sunrise.innerText = UTCToIST(weatherData.sys.sunrise);
     sunset.innerText = UTCToIST(weatherData.sys.sunset);
-    cityName.innerText = `${weatherData.name}, ${weatherData.sys.country}`;
+    cityName.innerHTML = `${getDay(forecastData.list[0].dt)}&nbsp;&nbsp;|&nbsp;&nbsp;${weatherData.name}, ${weatherData.sys.country}`;
     weatherImage.src = `https://openweathermap.org/img/wn/${weatherData.weather[0].icon}@2x.png`
     weatherDesc.innerText = capitalize(weatherData.weather[0].description);
     visibility.innerText = `Visibility  -  ${weatherData.visibility / 1000} km`;
