@@ -10,13 +10,26 @@ var lon = 0;
 var city = 'nagpur';
 var unit = 'C';
 
-// let d= new Date();
-// if(d.getHours() >= 19){
-//     console.log(d.getHours());
-//     //let body = document.getElementsByTagName('body')[0];
-//     //body.setAttribute('background','#222831');
-// }
+let d = new Date();
+if(d.getHours() >= 19 || d.getHours() <= 5){
+    let container = document.getElementById('main-container');
+    container.style.background = '#000'
+    container.style.color = 'white';
+    let current = document.getElementById('current-location');
+    let unitC = document.getElementById('unit-cel');
+    let unitF = document.getElementById('unit-fah');
+    let card = document.querySelectorAll('.current-weather');
+    card.forEach(element => {
+        element.style.background = '#313131';
+    });
 
+    current.classList.remove('btn-outline-dark');
+    unitC.classList.remove('btn-outline-dark');
+    unitF.classList.remove('btn-outline-dark');
+    current.classList.add('btn-outline-light');
+    unitC.classList.add('btn-outline-light');
+    unitF.classList.add('btn-outline-light');
+}
 
 function getUpdateTime(){
     var d = new Date();
@@ -48,8 +61,8 @@ async function getData(url1, url2) {
     let fData = await fetch(url2);
     let weatherData = await wData.json();
     let forecastData = await fData.json();
-    console.log(weatherData);
-    console.log(forecastData);
+    //console.log(weatherData);
+    //console.log(forecastData);
     display(weatherData, forecastData);
 }
 
@@ -162,8 +175,8 @@ document.getElementById('current-location').addEventListener('click', event => {
 function showPosition(position) {
     lat = position.coords.latitude;
     lon = position.coords.longitude;
-    console.log(typeof lat);
-    console.log(typeof lon);
+    //console.log(typeof lat);
+    //console.log(typeof lon);
     if (unit === 'C') {
         url1 = `${weatherCCity}&lat=${lat}&lon=${lon}`;
         url2 = `${forecastCCity}&lat=${lat}&lon=${lon}`;
